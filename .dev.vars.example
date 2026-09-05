@@ -1,0 +1,16 @@
+# Copy this file to .dev.vars and fill in your real values for local testing.
+# .dev.vars is ignored by git — never commit real secrets.
+
+# Telegram bot token from @BotFather (same value as the BOT_TOKEN secret in Cloudflare)
+BOT_TOKEN=123456789:AAExampleToken_ChangeMe
+
+# Gemini API key from aistudio.google.com (same value as the GEMINI_API_KEY secret in Cloudflare)
+GEMINI_API_KEY=ChangeMe
+
+# Any random string, 32+ characters. Protects /webhook and /init.
+# Use the SAME value as the WEBHOOK_SECRET secret you add in Cloudflare.
+WEBHOOK_SECRET=ChangeMe_32_chars_minimum_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+# Your numeric Telegram user id. Leave empty at first — message the bot and it
+# will tell you your id. Then add it here and in Cloudflare to lock the bot.
+OWNER_ID=

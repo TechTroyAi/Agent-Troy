@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Wrangler local state
+.wrangler/
+
+# Local secrets — never commit real secrets!
+.dev.vars
+
+# Logs
+*.log
