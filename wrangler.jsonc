@@ -1,0 +1,35 @@
+{
+  // Troy's personal Telegram assistant — STEP 1: Telegram <-> Gemini with memory.
+  // Human steps and how to set everything up: see README.md.
+  "name": "agent-troy",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-06-01",
+
+  // Plain variables (safe to keep in the repo). Secrets live in the
+  // Cloudflare dashboard (Worker -> Settings -> Variables and Secrets) and in
+  // the local .dev.vars file (NOT committed): BOT_TOKEN, GEMINI_API_KEY,
+  // WEBHOOK_SECRET, OWNER_ID. See .dev.vars.example.
+  "vars": {
+    // Gemini model. Verified to exist via GET /v1beta/models on 2026-09-05.
+    // Keep overridable without code changes.
+    "GEMINI_MODEL": "gemini-2.5-flash",
+    "TIMEZONE": "Asia/Manila"
+  },
+
+  // D1 database. Tables are created lazily on first use (see src/db.ts), so
+  // no migration step is needed. The database ID below was created by Troy in
+  // the Cloudflare dashboard (Storage & Databases -> D1). If you recreate the
+  // database, paste the new ID here.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "agent_troy",
+      "database_id": "197650f3-1cce-4c36-8bb4-2cdc75f005a0"
+    }
+  ],
+
+  // Lets Troy read real-time logs in the dashboard (Worker -> Logs).
+  "observability": {
+    "enabled": true
+  }
+}
